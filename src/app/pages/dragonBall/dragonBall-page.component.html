@@ -1,0 +1,30 @@
+<h1 class="text-center">Dragon Ball Page !!!</h1>
+
+<section class="row mt-5 d-flex justify-content-around">
+  <div class="col-6 col-sm-4">
+    <h3 class="mb-2 text-center">Character Info</h3>
+    <input
+      type="text"
+      name=""
+      id=""
+      class="form-control mb-2"
+      placeholder="Name"
+    /><input
+      type="number"
+      name=""
+      id=""
+      class="form-control mb-3"
+      placeholder="Power"
+    />
+    <button type="button" class="btn btn-primary w-100">Add</button>
+  </div>
+
+  <div class="col-6 col-sm-4">
+    <h3>CharacterList</h3>
+    <ol type="I">
+      @for(character of characters(); track character.id ) {
+      <li>Goku</li>
+      }
+    </ol>
+  </div>
+</section>
