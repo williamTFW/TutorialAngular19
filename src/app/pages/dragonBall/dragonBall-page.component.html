@@ -9,22 +9,59 @@
       id=""
       class="form-control mb-2"
       placeholder="Name"
+      [value]="name()"
+      (change)="name.set(nameInput.value)"
+      #nameInput
     /><input
       type="number"
       name=""
       id=""
       class="form-control mb-3"
       placeholder="Power"
+      [value]="power()"
+      (change)="power.set(+powerInput.value)"
+      #powerInput
     />
-    <button type="button" class="btn btn-primary w-100">Add</button>
+    <button
+      (click)="addCharacter()"
+      type="button"
+      class="btn btn-primary w-100"
+    >
+      Add
+    </button>
   </div>
 
   <div class="col-6 col-sm-4">
-    <h3>CharacterList</h3>
-    <ol type="I">
-      @for(character of characters(); track character.id ) {
-      <li>Goku</li>
-      }
-    </ol>
+    <div class="col-6 col-sm-4">
+      <h3 class="text-center">CharacterList</h3>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Power</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(character of characters(); track character.id; let idx = $index )
+          {
+          <tr>
+            <td>{{ idx }}</td>
+            <td>{{ character.name }}</td>
+            @if (character.power > 2000) {
+            <td [class.text-danger]="character.power > 9000">
+              {{ character.power }}
+            </td>
+            } @else {
+            <td class="text-info">
+              {{ character.power }}
+            </td>
+            }
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>

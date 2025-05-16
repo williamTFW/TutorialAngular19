@@ -1,22 +1,22 @@
 import { Component, signal } from "@angular/core";
+import { IDragonBallPageCharacter } from '../../interfaces/character-list.interfaces'
+import { CharacterListComponent } from "../../components/dragonBS/character-list.component";
 
-interface IDragonBallPageCharacter {
-    id: number;
-    name: string;
-    power: number;
-}
+
 
 @Component({
-    templateUrl: './dragonBall-page.component.html'
+    templateUrl: './dragonBallSuper-page.component.html',
+    imports: [CharacterListComponent],
 })
 
-export class DragonBallPageComponent {
+export class DragonBallSuperPageComponent {
 
     name = signal("");
     power = signal(0);
 
     characters = signal<IDragonBallPageCharacter[]>([
         { id: 1, name: 'Goku', power: 9000 },
+        { id: 2, name: 'Vegeta', power: 18000 }
     ]);
 
     addCharacter() {
